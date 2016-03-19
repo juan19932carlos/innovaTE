@@ -12,7 +12,11 @@
     }
 
     public function manuales() {
-    	# code...
+        $this->_view->setTitle("InovaTE - Manueles");
+
+        
+        $this->_view->renderizar(__FUNCTION__);
+        return;
     }
 
     public function enlaces() {
