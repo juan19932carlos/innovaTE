@@ -1,0 +1,39 @@
+.inversionista {
+	border-radius: 1em;
+	border: solid white 30px;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.inversionista img {
+	width: 100%;
+}
+
+.inversionista h1, .inversionista h2, .inversionista h3, .inversionista h4, .inversionista h5, .inversionista h6 {
+	text-align: center;
+	font: bold;
+}
+
+@media (max-width: 768px) {
+	.inversionista h1, .inversionista h2, .inversionista h3, .inversionista h4, .inversionista h5, .inversionista h6  {
+		display: none;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.inversionista {
+		width: 250px;
+		height: 330px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+	.inversionista {
+		width: 250px;
+		height: 330px;
+	}
+}
+@media (min-width: 1200px) {
+	.inversionista {
+		width: 300px;
+		height: 400px;
+	}
+}

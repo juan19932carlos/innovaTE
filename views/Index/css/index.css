@@ -1,0 +1,81 @@
+.login {
+	border: solid .1em black;
+	border-radius: .5em;
+	margin-bottom: 6em;
+	padding: 1em;
+}
+
+/*----------------------------INSCRIBE TU IDEA------------------------*/
+#tu-idea {
+	margin: 40px auto;
+}
+#tu-idea > div:first-child { 			/*div:Cuadro blanco*/
+	float: right;
+	border-radius: 20px;
+}
+#tu-idea > div:last-child {				/*div:Imágen Innovate*/
+	float: left;
+	width: 30%;
+	height: 100px;
+	margin: 40px;
+}
+#tu-idea a {
+	overflow: hidden;
+	display: block;
+	margin: 5px auto;
+	width: 90%;
+}
+#tu-idea a * {
+	position: relative;
+	vertical-align: middle;
+	z-index: 1;
+}
+#tu-idea a img {
+	border-radius: 100%;
+}
+#tu-idea a h1, #tu-idea a h2, #tu-idea a h3, #tu-idea a h4, #tu-idea a h5, #tu-idea a h6 {
+	border: solid #099 2px;
+	overflow: hidden;
+	border-radius: 10px;
+	text-align: center;
+	z-index: 0;
+}
+/*Tamaños tomados de bootstrap*/
+@media (max-width: 768px) { /*Tamaño de la caja en xs*/
+	#tu-idea {
+		width: 90%;
+	}
+	#tu-idea > div:first-child {
+		width: 100%;	
+	}
+	#tu-idea a {
+		height: 180px;
+	}
+	#tu-idea a img {
+		margin: auto;
+	}
+	#tu-idea a h1, #tu-idea a h2, #tu-idea a h3, #tu-idea a h4, #tu-idea a h5, #tu-idea a h6 {
+		padding: .5em .2em .3em .2em;
+		bottom: 40px;
+	}
+}
+@media (min-width: 768px) { /*Tamaño de la caja en sm, md y lg*/
+	#tu-idea {
+		width: 650px;
+	}
+	#tu-idea > div:first-child {
+		width: 80%;	
+	}
+	#tu-idea a {
+		height: 134px;		
+	}
+	#tu-idea a h1, #tu-idea a h2, #tu-idea a h3, #tu-idea a h4, #tu-idea a h5, #tu-idea a h6 {
+		display: inline-block;
+		border-left: none;
+		width: 90%;
+		height: 70px;
+		padding: .5em .5em .5em 2em ;
+		bottom: 120px;
+		float: right;
+	}
+}

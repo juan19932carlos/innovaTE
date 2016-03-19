@@ -1,0 +1,205 @@
+#inovate-logo{
+	top: -3em;
+	width: auto;
+}
+
+#barra-navegacion{
+	border: 1.2px solid blue;
+	border-left: none;
+	border-right: none;
+	height: 3em;
+}
+
+/*Estilos para #footer de la pagina*/
+#footer {
+	margin-top: 130px;
+}
+#footer a {
+	text-align: center;				/*Alinea el texto de los links*/
+}
+#footer a:hover{
+	color: #999;					/*Oscurece el texto en hover*/
+	text-decoration: none;			/*Elimina subrallado en hover*/
+}
+#footer section {
+	margin:  auto;					/*Centra los botones redondos*/
+	padding-top: 30px;
+}
+#footer section img {
+	padding-top: 10%;				/*Rellena arriba la imagen para centrarla en el circulo*/
+}
+#footer section a div{
+	border-radius: 100%;			/*Redondea los botones*/
+	border: solid 20px white;		/*Agrega algo de margen para que la imagen sea más pequeña*/
+	background-color: white;		/*Fondo de la imagen blanco*/
+	margin: auto;					/*Centra los circulos en su caja*/
+	width: 150px;					/*Fija el tamaño para que se vea un círculo uniforme*/
+	height: 150px;
+}
+/*Tamaños tomados de bootstrap*/
+@media (max-width: 768px) { /*Tamaño de la caja que contiene los botones en tamaño xs*/
+	#footer section {
+		width: 200px;			
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) { /*tamaño de la caja que contiene los botones en tamaño sm*/
+	#footer section {
+		width: 663px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1200px) { /*Tamaño de la caja que contiene los botones en tamaño md*/
+	#footer section {
+		width: 663px;
+	}
+}
+@media (min-width: 1200px) { /*Tamaño de la caja que contiene los botones en tamaño lg*/
+	#footer section {
+		width: 800px;
+	}
+}
+
+/*Contenedor*/
+.contenedor {
+	width: 100%;					/*El contenedor usa el 100% para que el fondo se expanda*/
+}
+.contenedor > header, .contenedor > div > section, .contenedor > div > article {
+	margin: auto;					/*Para que el contenedor principal permanesca centrado*/
+	position: relative;
+}
+.contenedor > div > section, .contenedor > div > article {
+	padding: 70px 10px 10px 10px;
+	z-index: 1;
+}
+.contenedor > header {
+	top: 60px;
+	z-index: 2;
+}
+.contenedor > header *{
+	display: inline-block;
+}
+.contenedor > header > img {
+	margin: 0 0 0 70px;
+	width: 140px;
+	height: auto;
+	border: solid #FFF 15px;
+	background-color: #FFF;
+}
+@media (max-width: 768px) { /*Tamaño de la caja con estilos para xs*/
+	.contenedor > header, .contenedor > div > section, .contenedor > div > article {
+		width: auto;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) { /*tamaño de la caja con estilos para sm*/
+	.contenedor > header, .contenedor > div > section, .contenedor > div > article {
+		width: 750px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1200px) { /*Tamaño de la caja con estilos para md*/
+	.contenedor > header, .contenedor > div > section, .contenedor > div > article {
+		width: 970px;
+	}
+}
+@media (min-width: 1200px) { /*Tamaño de la caja con estilos para lg*/
+	.contenedor > header, .contenedor > div > section, .contenedor > div > article {
+		width: 1170px;
+	}
+}
+
+/*-----------------------Botones-----------------------*/
+/*Boton innovate1*/
+.btn-innovate1 {
+	padding: 6px 4px;
+	margin-top: 30px;
+	height: 61px;
+	width: 220px;
+}
+.btn-innovate1 > * {
+	z-index: 1;
+	position: relative;;
+}
+.btn-innovate1 > div {
+	z-index: 2;
+	border-radius: 100%;
+	box-shadow: -2px -4px 0px #069;
+	width: 70px;
+	height: 70px;
+	bottom: 17px;
+}
+.btn-innovate1 > div > img {
+	width: 80%;
+	vertical-align: middle;
+} 
+.btn-innovate1 h1, .btn-innovate1 h2, .btn-innovate1 h3, .btn-innovate1 h4, .btn-innovate1 h5, .btn-innovate1 h6{
+	padding: 6px 3px 6px 70px;
+	border: solid #064 1px;
+	border-radius: 5px;
+	bottom: 75px;
+}
+
+/*-----------------------Colores de fondo-----------------------*/
+.bg-amarillo {
+	background-color: #FC0;
+}
+
+.bg-azul {
+	background-color: #069;
+}
+
+.bg-naranja {
+	background-color: #F63;
+}
+
+.bg-blanco {
+	background-color: #FFF;	
+}
+
+/*-----------------------Colores de texto-----------------------*/
+
+.tx-blanco {
+	color: #FFF;
+}
+.tx-negro {
+	color: #000;
+}
+.tx-azul {
+	color: #069;
+}
+.tx-naranja {
+	color: #F63;
+}
+.tx-amarillo {
+	color: #FC0;
+}
+
+/*-----------------------colores de sombra y dirección-----------------------*/
+.shadow-up-naranja {
+	box-shadow: -6px -10px 2px #F63;
+}
+.shadow-up-amarillo {
+	box-shadow: -6px -10px 2px #FC0;
+}
+.shadow-up-azul {
+	box-shadow: -6px -10px 2px #069;
+}
+.shadow-up-negro {
+	box-shadow: -6px -10px 8px #444;
+}
+.shadow-up-blanco {
+	box-shadow: -6px -10px 2px #FFF;
+}
+
+.shadow-down-naranja {
+	box-shadow: 9px 9px 2px #F63;
+}
+.shadow-down-amarillo {
+	box-shadow: 9px 9px 2px #FC0;
+}
+.shadow-down-azul {
+	box-shadow: 9px 9px 2px #069;
+}
+.shadow-down-negro {
+	box-shadow: 9px 9px 8px #444;
+}
+.shadow-down-blanco {
+	box-shadow: 9px 9px 2px #FFF;
+}

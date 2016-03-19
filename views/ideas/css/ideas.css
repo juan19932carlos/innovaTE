@@ -1,0 +1,189 @@
+/*--------------------PROYECTOS DESTACADOS----------------*/
+.descripcion-proyecto {
+	float: right;
+}
+.descripcion-proyecto > div #texto {
+	display: inline-block;
+	padding: 10px 40px;
+	border-radius: 20px;
+	vertical-align: middle;
+	width: 85%;
+}
+
+#descripcion > div{
+	height: 260px;
+	width: 100%;
+	z-index: 1;
+	top: 30px;
+	left: 60px;
+}
+@media (max-width: 992px) { /*Estilos para xs*/
+	.descripcion-proyecto > div * {
+		margin: auto;
+	}
+	.descripcion-proyecto {
+		width: 100%;
+	}
+	.descripcion-proyecto > div img {
+		display: none;
+	}
+}
+/*@media (min-width: 768px) and (max-width: 992px) { /*Estilos para sm/
+}*/
+@media (min-width: 992px) { /*Estilos para md y lg*/
+	.descripcion-proyecto {
+		width: 80%;
+	}
+	.descripcion-proyecto > div img {
+		margin: 5px 15px;
+		width: 10%;
+		height: auto;
+	}
+	#descripcion {
+		height: 300px;
+	}
+	#descripcion > * {
+		position: absolute;
+	}
+	#descripcion > div{
+		border-left: solid #FFF 30px;
+	}
+	#descripcion > img {
+		margin: 5px 15px;
+		width: 10%;
+		height: auto;
+		z-index: 2;
+	}
+}
+
+/*--------------------GRUPOS DE TRABAJO----------------*/
+.integrantes img{
+	border: solid gray 1px;
+	border-radius: 100%;
+	width: 128px;
+	height: 128px;
+}
+.integrantes *{
+	margin: auto;
+}
+.descripcion-grupos {
+	height: 300px;
+}
+.descripcion-grupos img {
+	border-radius: 100%;
+	position: absolute;
+	display: block;
+	z-index: 2;
+}
+.descripcion-grupos div {
+	position: absolute;
+	border-radius: 1em;
+	padding-right: 1.5em;
+	z-index: 1;
+	width: 86%;
+}
+
+
+/*Tamaños tomados de bootstrap*/
+@media (max-width: 768px) { /*Tamaño xs*/
+	.descripcion-grupos img {
+		visibility: hidden;
+	}
+	.descripcion-grupos div {
+		padding: 0 30px;
+		height: 200px;
+		width: 92%;
+	}
+	.descripcion-grupos {
+		margin: 7px 0;
+		height: 210px;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) { /*tamaño sm*/
+	.descripcion-grupos img {
+		width: 90px;
+	}
+	.descripcion-grupos div {
+		top: 30px;
+		height: 250px;
+		padding-left: 60px;
+		margin-left: 30px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1200px) { /*Tamaño md*/
+	.descripcion-grupos div {
+		top: 40px;
+		height: 250px;
+		padding-left: 80px;
+		margin-left: 50px;
+	}
+}
+@media (min-width: 1200px) { /*Tamaño lg*/
+	.descripcion-grupos div {
+		top: 40px;
+		height: 250px;
+		padding-left: 90px;
+		margin-left: 50px;
+	}
+}
+/*--------------------PROYECTOS GRADUADOS----------------*/
+.graduado {
+	position: relative;
+	border-radius: 10%;
+	height: 250px;
+}
+.graduado img {
+	background: #FFF;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*Tamaños tomados de bootstrap
+@media (max-width: 768px) { /*Tamaño xs
+	.graduado {
+		height: ;
+	}
+	.graduado img {
+
+	}
+	.graduado #img {
+		max-height: 
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) { /*tamaño sm
+	.graduado {
+		height: ;
+	}
+	.graduado img {
+
+	}
+	.graduado #img {
+		max-height: 
+	}
+}
+@media (min-width: 992px) and (max-width: 1200px) { /*Tamaño md
+	.graduado {
+		height: ;
+	}
+	.graduado img {
+
+	}
+	.graduado #img {
+		max-height: 
+	}
+}
+@media (min-width: 1200px) { /*Tamaño lg
+	.graduado {
+		line-height: 240px;
+	}
+	.graduado img {
+
+	}
+	.graduado #img {
+	}
+}
+
