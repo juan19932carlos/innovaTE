@@ -1,0 +1,85 @@
+//Variables
+@import '../../_lib.scss';
+
+.login {
+	border: solid .1em black;
+	border-radius: .5.5em;
+	margin-bottom: 6em;
+	padding: 1em;
+}
+
+//----------------------------INSCRIBE TU IDEA------------------------
+#tu-idea {
+	margin: 40px auto;
+
+	> div {
+		&:first-child {
+			float: right;
+			border-radius: 20px;
+		}
+		&:last-child{
+			float: left;
+			width: 30%;
+			height: 100px;
+			margin: 40px;
+		}
+	}
+
+	a {
+		overflow: hidden;
+		display: block;
+		margin: 5px auto;
+		width: 90%;
+		* {
+			position: relative;
+			vertical-align: middle;
+			z-index: 1;
+		}
+		img {
+			border-radius: 100%;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			border: solid #099 2px;
+			overflow: hidden;
+			border-radius: 10px;
+			text-align: center;
+			z-index: 0;
+		}
+	}
+	@media (max-width: $sm){ //Tamaño de la caja en xs
+		width: 90%;
+
+		> div:first-child {
+			width: 100%;
+		}
+		a {
+			height: 180px;
+			img {
+				margin: auto;
+			}
+			h1,h2,h3,h4,h5,h6 {
+				padding: .5em .2em .3em .2em;
+				bottom: 40px;
+			}
+		}
+	}
+	@media (min-width: $sm){ //Tamaño de la caja en sm, md y lg
+		width: 650px;
+
+		> div:first-child {
+			width: 80%;	
+		}
+		a {
+			height: 134px;
+			h1,h2,h3,h4,h5,h6 {
+				display: inline-block;
+				border-left: none;
+				width: 90%;
+				height: 70px;
+				padding: .5em .5em .5em 2em ;
+				bottom: 120px;
+				float: right;
+			}
+		}
+	}
+}
