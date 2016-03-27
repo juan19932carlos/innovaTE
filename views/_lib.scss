@@ -2,5 +2,20 @@
 	$sm: 750px;
 	$md: 970px;
 	$lg: 1170px;
-		
 
+	$colores: (	naranja:#F63, 
+				azul:#069, 
+				amarillo:#FC0,
+				negro:#444,
+				blanco:#FFF);
+
+//Mixins
+@mixin m-Shadow($nombre, $x, $y, $dif, $color:#000) {
+	@if map-has-key($colores, $nombre) {
+		$color : map-get($colores, $nombre);
+	}
+	.shadow-#{$nombre} {
+		box-shadow: $x $y $dif $color;
+		-webkit-box-shadow: $x $y $dif $color;
+		-moz-box-shadow: $x $y $dif $color;
+	}}

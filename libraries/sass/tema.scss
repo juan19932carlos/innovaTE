@@ -1,0 +1,124 @@
+@import "_lib.scss";
+
+#inovate-logo{
+	top: -3em;
+	width: auto;
+}
+
+#barra-navegacion{
+	border: 1.2px solid blue;
+	border-left: none;
+	border-right: none;
+	height: 3em;
+}
+
+/*Estilos para #footer de la pagina*/
+#footer {
+	margin-top: 130px;
+	a {
+		text-align: center;				//Alinea el texto de los links
+		&:hover{
+			color: #999;				//Oscurece el texto en hover
+			text-decoration: none;		//Elimina subrallado en hover
+		}
+	}
+	section {
+		margin:  auto;					//Centra los botones redondos
+		padding-top: 30px;
+		img {
+			padding-top: 10%;			//Rellena arriba la imagen para centrarla en el circulo
+		}
+		a div{
+			border-radius: 100%;		//Redondea los botones
+			border: solid 20px white;	//Agrega algo de margen para que la imagen sea más pequeña
+			background-color: white;	//Fondo de la imagen blanco
+			margin: auto;				//Centra los circulos en su caja
+			width: 150px;				//Fija el tamaño para que se vea un círculo uniforme
+			height: 150px;
+		}
+
+		@media (max-width: $sm){
+			width: 200px;
+		}
+		@media (min-width: $sm) and (max-width: $md){
+			width: 663px;
+		}
+		@media (min-width: $md) and (max-width: $lg){
+			width: 663px;
+		}
+		@media (min-width: $lg){
+			width: 800px;
+		}
+	}
+}
+
+/*Estilo del contenedor*/
+.contenedor {
+	width: 100%;						//El contenedor usa el 100% para que el fondo se expanda
+	> header {
+		margin: auto;					//Para que el contenedor principal permanesca centrado
+		position: relative;
+		top: 60px;
+		z-index: 2;
+
+		* {
+			display: inline-block;
+		}
+		> img {
+			margin: 0 0 0 70px;
+			width: 140px;
+			height: auto;
+			border: solid white 15px;
+			background-color: white;
+		}
+	}
+	div {
+		 > section, > article  {
+			margin: auto;				//Para que el contenedor principal permanesca centrado*/
+			position: relative;
+			padding: 70px 10px 10px 10px;
+			z-index: 1;
+		}
+	}
+	@media (max-width: $sm) { 
+		> header,  > div > section,  > div > article {
+			width: auto;
+		}
+	}
+	@media (min-width: $sm) and (max-width: $md) { 
+		> header,  > div > section,  > div > article {
+			width: 750px;
+		}
+	}
+	@media (min-width: $md) and (max-width: $lg) {
+		> header,  > div > section,  > div > article {
+			width: 970px;
+		}
+	}
+	@media (min-width: $lg) { 
+		> header,  > div > section,  > div > article {
+			width: 1170px;
+		}
+	}
+
+}
+
+/*Colores de fondo*/
+@each $nombre, $color in $colores {
+	.bg-#{$nombre} {
+		background-color: $color;
+	}}
+/*Colores de texto*/
+@each $nombre, $color in $colores {
+	.tx-#{$nombre} {
+		color: $color;
+	}}
+
+/*colores de sombra y dirección*/
+@each $nombre,$color in $colores {
+	@include m-Shadow( 'up-'+$nombre, -10px, -7px, 2px, $color);
+}
+
+@each $nombre,$color in $colores {
+	@include m-Shadow( 'down-'+$nombre, 9px, 9px, 4px, $color);
+}
