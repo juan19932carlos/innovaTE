@@ -15,6 +15,7 @@
         $this->_view->setTitle("InnovaTE - Manuales");
 
         $archivos = array();
+        $videos = array();
 
         $archivos[] =  array( 'extencion' => 'pdf', 
                               'link' => 'descargables/3452452345.pdf',
@@ -35,14 +36,47 @@
         $archivos[] =  array( 'extencion' => 'pdf', 
                               'link' => 'descargables/3452452343.pdf',
                               'nombre' => 'Electrónica');
+        
+        /*Videos*/
+        $videos[] =  array( 'link' => 'https://youtu.be/ZOdbo5pA4Ig',
+                            'nombre' => 'Jaime Garzon');
+        
+        $videos[] =  array( 'link' => 'https://youtu.be/Mtjatz9r-Vc',
+                            'nombre' => 'The art of innovation | Guy Kawasaki | TEDxBerkeley');
+        
+        $videos[] =  array( 'link' => 'https://youtu.be/B4ZSGQW0UMI',
+                            'nombre' => 'Business Model Innovation');
 
+        $videos[] =  array( 'link' => 'https://youtube.com/B4ZSGQW0UMI',
+                            'nombre' => 'Business Model Innovation');
+
+        /*Solución al problema de embebido de Youtube*/
+        foreach ($videos as  $key => $video) {
+          if( strpos($video['link'], ".be") )
+            $videos[$key]['link'] = str_replace( ".be", "be.com/embed", $video['link']);
+          else
+            $videos[$key]['link'] = str_replace( ".com", ".com/embed", $video['link']);
+        }
+
+        /*Asignar variables Smarty*/
+        $this->_view->assign('videos',$videos);
         $this->_view->assign('archivos',$archivos);
         $this->_view->renderizar(__FUNCTION__);
         return;
     }
 
     public function enlaces() {
-    	# code...
+      $this->_view->setTitle("InnovaTE - Manuales");
+
+      $enlaces = array();
+
+      $enlaces[] =  array('direccion' => 'pdf',
+                          'nombre' => 'TUtorial PHP y SQL');
+
+      $this->_view->assign('enlaces',$enlaces);
+      $this->_view->renderizar(__FUNCTION__);
+      return;
+
     }
 
     public function software() {
