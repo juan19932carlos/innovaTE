@@ -1,0 +1,60 @@
+@import "../../_lib.scss";
+/*--------------------MANUALES--------------------*/
+.contenedor-archivos{
+	width: 80%;
+	margin: 1% 10%;
+	display: flex;
+	@include compatibilidad(flex-wrap,wrap);
+	//justify-content: center;
+
+	>a {
+		margin: 7px;
+		background-color: white;
+		text-align: center;
+		padding: 10px 0px;
+		border-radius: 5px;
+
+		img {
+			margin: 2px auto;
+			width: 33.33333%;
+		}
+
+		@media (max-width: $sm) {
+			width: 45%;
+		}
+		@media (min-width: $sm){
+			width: 30%;
+		}
+	}
+}
+/*--------------------VIDEOS--------------------*/
+.video-contenedor{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	@include compatibilidad(flex-wrap,wrap);
+	margin: 15px 0px;
+			
+	>div {
+		overflow: hidden;
+		text-align: center;
+		margin: 2px 0px 10px 0px;
+		padding: 10px 0px;
+		border-radius: 5px;
+		border: solid #999 1px;
+		background-color: white;
+
+		iframe {
+			border: none;
+		}
+		@media (max-width: $sm) {
+			width: 60%;
+		}
+		@media (min-width: $sm) and (max-width: $md) {
+			width: 49%;
+		}
+		@media (min-width: $md) {
+			width: 40%;
+		}
+	}
+}

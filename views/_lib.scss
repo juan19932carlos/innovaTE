@@ -19,3 +19,15 @@
 		-webkit-box-shadow: $x $y $dif $color;
 		-moz-box-shadow: $x $y $dif $color;
 	}}
+
+@mixin compatibilidad($propiedad,$valor) {
+	-webkit-#{$propiedad}:#{$valor};
+	-o-#{$propiedad}:#{$valor};
+	-ms-#{$propiedad}:#{$valor};
+	-moz-#{$propiedad}:#{$valor};
+	#{$propiedad}:#{$valor};
+}
+
+@mixin test($color) {
+	border: solid #{$color};
+}
