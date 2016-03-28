@@ -1,5 +1,6 @@
 @import "../../_lib.scss";
 /*--------------------MANUALES--------------------*/
+/*manuales, links*/
 .contenedor-archivos{
 	width: 80%;
 	margin: 1% 10%;
@@ -27,15 +28,15 @@
 		}
 	}
 }
-/*--------------------VIDEOS--------------------*/
-.video-contenedor{
+/*Videos*/
+.video-contenedor, .enlaces-contenedor, .software-contenedor{
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
 	@include compatibilidad(flex-wrap,wrap);
 	margin: 15px 0px;
 			
-	>div {
+	>div, >a {
 		overflow: hidden;
 		text-align: center;
 		margin: 2px 0px 10px 0px;
@@ -47,6 +48,7 @@
 		iframe {
 			border: none;
 		}
+
 		@media (max-width: $sm) {
 			width: 60%;
 		}
@@ -55,6 +57,33 @@
 		}
 		@media (min-width: $md) {
 			width: 40%;
+		}
+
+		&.flexissue { // Div para evitar que se centre la ultima caja cuando el número de cajas es impar.
+			background-color: transparent;
+			border: none;
+			content: " ";
+			@media (max-width: $sm) {
+				width: 60%;
+			}
+			@media (min-width: $sm) and (max-width: $md) {
+				width: 49%;
+			}
+			@media (min-width: $md) {
+				width: 40%;
+			}
+		}
+	}
+}
+
+.enlaces-contenedor, .software-contenedor{
+	>a{
+		img {
+			margin: 2px auto;
+			width: 70%;
+		}
+		.btn:hover spam {
+			color: map-get($colores,'azul');
 		}
 	}
 }

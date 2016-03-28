@@ -47,7 +47,7 @@
         $videos[] =  array( 'link' => 'https://youtu.be/B4ZSGQW0UMI',
                             'nombre' => 'Business Model Innovation');
 
-        $videos[] =  array( 'link' => 'https://youtube.com/B4ZSGQW0UMI',
+        $videos[] =  array( 'link' => 'https://youtu.be/B4ZSGQW0UMI',
                             'nombre' => 'Business Model Innovation');
 
         /*Solución al problema de embebido de Youtube*/
@@ -70,17 +70,33 @@
 
       $enlaces = array();
 
-      $enlaces[] =  array('direccion' => 'pdf',
-                          'nombre' => 'TUtorial PHP y SQL');
+      $enlaces[] =  array('direccion' => 'http://www.thethinkingbusiness.com/',
+                          'nombre' => 'The thinking business',
+                          'descripcion' => "The Thinking Business is a global training company specialising in thinking skills. We are experts in creative thinking, strategic thinking and mind mapping. Our world-class training programmes are designed to give you the knowledge, skills and techniques to be able to generate creative ideas and strategies that will drive your personal and business growth.");
+
+      $enlaces[] =  array('direccion' => 'http://www.thethinkingbusiness.com/',
+                          'nombre' => 'The thinking business',
+                          'descripcion' => "The Thinking Business is a global training company specialising in thinking skills. We are experts in creative thinking, strategic thinking and mind mapping. Our world-class training programmes are designed to give you the knowledge, skills and techniques to be able to generate creative ideas and strategies that will drive your personal and business growth.");
+
+      $enlaces[] =  array('direccion' => 'http://www.thethinkingbusiness.com/',
+                          'nombre' => 'The thinking business',
+                          'descripcion' => "The Thinking Business is a global training company specialising in thinking skills. We are experts in creative thinking, strategic thinking and mind mapping. Our world-class training programmes are designed to give you the knowledge, skills and techniques to be able to generate creative ideas and strategies that will drive your personal and business growth.");
 
       $this->_view->assign('enlaces',$enlaces);
       $this->_view->renderizar(__FUNCTION__);
       return;
-
     }
 
     public function software() {
-    	# code...
+    	$programas = array();
+
+      $programas[] =  array('direccion' => 'http://www.thethinkingbusiness.com/',
+                            'nombre' => 'The thinking business',
+                            'descripcion' => "The Thinking Business is a global training company specialising in thinking skills. We are experts in creative thinking, strategic thinking and mind mapping. Our world-class training programmes are designed to give you the knowledge, skills and techniques to be able to generate creative ideas and strategies that will drive your personal and business growth.");
+      
+      $this->_view->assign('programas',$programas);
+      $this->_view->renderizar(__FUNCTION__);
+      return;
     }
 
 }
