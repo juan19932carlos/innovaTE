@@ -27,12 +27,17 @@
 		<div class="bg-naranja">
 			<article>
 				<div class="video-contenedor">
+					{$flag = 0}
 					{foreach from=$videos item=video}
+					{$flag = $flag + 1}
 					<div>
 						<iframe src="{$video.link}" allowfullscreen></iframe>
 						<h3>{$video.nombre}</h3>
 					</div>
 					{/foreach}
+					{if ($flag > 1) and ($flag is odd)}
+						<div class="flexissue"></div>
+					{/if}
 				</div>
 			</article>
 		</div>

@@ -1,4 +1,5 @@
 /*--------------------MANUALES--------------------*/
+/*manuales, links*/
 .contenedor-archivos {
   width: 80%;
   margin: 1% 10%;
@@ -24,8 +25,8 @@
       .contenedor-archivos > a {
         width: 30%; } }
 
-/*--------------------VIDEOS--------------------*/
-.video-contenedor {
+/*Videos*/
+.video-contenedor, .enlaces-contenedor, .software-contenedor {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -35,7 +36,7 @@
   -moz-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 15px 0px; }
-  .video-contenedor > div {
+  .video-contenedor > div, .video-contenedor > a, .enlaces-contenedor > div, .enlaces-contenedor > a, .software-contenedor > div, .software-contenedor > a {
     overflow: hidden;
     text-align: center;
     margin: 2px 0px 10px 0px;
@@ -43,14 +44,33 @@
     border-radius: 5px;
     border: solid #999 1px;
     background-color: white; }
-    .video-contenedor > div iframe {
+    .video-contenedor > div iframe, .video-contenedor > a iframe, .enlaces-contenedor > div iframe, .enlaces-contenedor > a iframe, .software-contenedor > div iframe, .software-contenedor > a iframe {
       border: none; }
     @media (max-width: 750px) {
-      .video-contenedor > div {
+      .video-contenedor > div, .video-contenedor > a, .enlaces-contenedor > div, .enlaces-contenedor > a, .software-contenedor > div, .software-contenedor > a {
         width: 60%; } }
     @media (min-width: 750px) and (max-width: 970px) {
-      .video-contenedor > div {
+      .video-contenedor > div, .video-contenedor > a, .enlaces-contenedor > div, .enlaces-contenedor > a, .software-contenedor > div, .software-contenedor > a {
         width: 49%; } }
     @media (min-width: 970px) {
-      .video-contenedor > div {
+      .video-contenedor > div, .video-contenedor > a, .enlaces-contenedor > div, .enlaces-contenedor > a, .software-contenedor > div, .software-contenedor > a {
         width: 40%; } }
+    .video-contenedor > div.flexissue, .video-contenedor > a.flexissue, .enlaces-contenedor > div.flexissue, .enlaces-contenedor > a.flexissue, .software-contenedor > div.flexissue, .software-contenedor > a.flexissue {
+      background-color: transparent;
+      border: none;
+      content: " "; }
+      @media (max-width: 750px) {
+        .video-contenedor > div.flexissue, .video-contenedor > a.flexissue, .enlaces-contenedor > div.flexissue, .enlaces-contenedor > a.flexissue, .software-contenedor > div.flexissue, .software-contenedor > a.flexissue {
+          width: 60%; } }
+      @media (min-width: 750px) and (max-width: 970px) {
+        .video-contenedor > div.flexissue, .video-contenedor > a.flexissue, .enlaces-contenedor > div.flexissue, .enlaces-contenedor > a.flexissue, .software-contenedor > div.flexissue, .software-contenedor > a.flexissue {
+          width: 49%; } }
+      @media (min-width: 970px) {
+        .video-contenedor > div.flexissue, .video-contenedor > a.flexissue, .enlaces-contenedor > div.flexissue, .enlaces-contenedor > a.flexissue, .software-contenedor > div.flexissue, .software-contenedor > a.flexissue {
+          width: 40%; } }
+
+.enlaces-contenedor > a img, .software-contenedor > a img {
+  margin: 2px auto;
+  width: 70%; }
+.enlaces-contenedor > a .btn:hover spam, .software-contenedor > a .btn:hover spam {
+  color: #069; }
