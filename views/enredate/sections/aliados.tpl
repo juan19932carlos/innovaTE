@@ -6,11 +6,11 @@
 		<div class="bg-amarillo">
 			<article>
 				<div class="aliados-inversionistas">
-				{foreach from=$inversionistas item=$inversionista }
-					<div class="inversionista bg-blanco shadow-down-negro" >
-						<img src="{$_params.site}/imagenes/inversionistas/{$inversionista.imagen}" alt="{$inversionista.nombre}" class="img-responsive">
-						<h3>{$inversionista.nombre}</h3>
-					</div>
+				{foreach from=$Aliados item=$Aliado }
+						<div class="bg-blanco shadow-down-negro" >
+							<img src="{$_params.site}/imagenes/inversionistas/{$Aliado.imagen}" alt="{$Aliado.nombre}" class="img-responsive">
+							<h3>{$Aliado.nombre}</h3>
+						</div>
 				{/foreach}
 				</div>
 			</article>

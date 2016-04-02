@@ -102,6 +102,43 @@
 	}
 
 }
+/*Botones*/
+.btn-innovate1 {
+	margin-top: 20px;
+	display: flex;
+	height: 60px;
+	width: 100%;
+	*{
+
+	}
+	img {
+		z-index: 1;
+		@include compatibilidad(box-shadow , -4px -5px 1px map-get($colores,'azul'));
+		background-color: white;
+		border-radius: 100%;
+		border: solid white 7px;
+		width: 80px;
+		height: 80px;
+		align-self: center;
+
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		@include compatibilidad(box-shadow , 4px 5px 4px map-get($colores,'negro'));
+		border-radius: 7px;
+		padding: 5px 0px;
+		box-justify: stretch;
+		text-align: center;
+		flex: 2 1 auto;
+	}
+
+	&:active {
+		h1,h2,h3,h4,h5,h6 {
+			@include compatibilidad(box-shadow , 2px 2px 1px map-get($colores,'negro'));
+		}
+	}
+
+}
 
 /*Colores de fondo*/
 @each $nombre, $color in $colores {

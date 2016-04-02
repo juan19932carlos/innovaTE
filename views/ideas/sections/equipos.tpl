@@ -44,14 +44,14 @@
 		</div>
 </section>
 {/foreach}
-<!--CONOCE MÁS-->
+<!--BTN CONOCE MÁS-->
 <div class="container">
 	<div class="row">
 		<div class="col-md-3
 					col-sm-4
 					col-xs-8 pull-right">
 			<a class="btn btn-innovate1 bg-azul">
-				<div class="bg-blanco"> <img src="{$_params.site}/imagenes/vector_grupos.png" alt="Conoce más."></div>
+				<img src="{$_params.site}/imagenes/vector_grupos.png" alt="Conoce más.">
 				<h4 class="bg-blanco tx-azul">Conoce más.</h4>
 			</a>
 		</div>

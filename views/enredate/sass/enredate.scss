@@ -1,0 +1,75 @@
+@import "../../_lib.scss";
+
+.mentor {
+	display: flex;
+	@include compatibilidad(flex-wrap, wrap);
+	justify-content: center;
+	width: 80%;
+	margin: auto;
+
+	#foto {
+		width: 30%;
+		height: auto;
+		text-align: center;
+		img {
+			background-color: white;
+			width: 50%;
+			border-radius: 100%;
+			border: solid white 10px;
+		}
+	}
+	#datos {
+		flex: 2 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h1,h2,h3,h4,h5,h6 {
+			@include compatibilidad( box-shadow , 2px 3px 3px map-get($colores,'negro') );
+			border-radius: 5px;
+			padding: 10px 7px;
+			margin: 4px 6px;
+		}
+	}
+	#experiencia {
+		height: 320px;
+		width: 80%;
+		* {
+			position: relative;
+		}
+		img{
+			z-index: 2;
+		}
+		div {
+			border-radius: 15px;
+			padding: 10px 5px 5px 115px;
+			z-index: 1;
+			bottom: 80px;
+			height: 240px;
+			width: 95%;
+			margin: auto;
+		}
+	}
+}
+
+.aliados-inversionistas{
+	width: 70%;
+	margin: 20px auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	>div {
+		width: 40%;
+		margin: 10px;
+		border-radius: 10px;
+		padding: 15px 10px;
+		text-align: center;
+
+		img {
+			margin: 10px auto;
+			width: 80%;
+		}
+	}
+
+}

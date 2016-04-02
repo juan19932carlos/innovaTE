@@ -12,11 +12,48 @@
     }
 
     public function mentores() {
-    	# code...
+
+        $mentores = array();
+
+        $mentores[] = array('nombre'    => "Nombre",
+                            'empresa'   => 'Empresa',
+                            'img'       => '1453438312.png',
+                            'experiencia'=>'Experiencia');
+        $mentores[] = array('nombre'    => "Nombre",
+                            'empresa'   => 'Empresa',
+                            'img'       => '1453438312.png',
+                            'experiencia'=>'Experiencia');
+        $mentores[] = array('nombre'    => "Nombre",
+                            'empresa'   => 'Empresa',
+                            'img'       => '1453438312.png',
+                            'experiencia'=>'Experiencia');
+
+    	$this->_view->assign('mentores',$mentores);
+
+        $this->_view->renderizar(__FUNCTION__);
     }
 
     public function aliados() {
-    	# code...
+
+        $this->_view->setTitle("InovaTE - Aliados");
+
+        $Aliados = array();
+
+    	$Aliados[] = array(  'nombre' => "CAMARA DE COMERCIO DE BOGOTÁ",
+                                    'imagen' => 'camara-de-comercio-de-bogota-002.jpg');
+
+        $Aliados[] = array(  'nombre' => "MINTIC",
+                                    'imagen' => 'lIoVXtYk.png');
+
+        $Aliados[] = array(  'nombre' => "Colciencias",
+                                    'imagen' => 'Logo_colciencias.jpg');
+
+        $Aliados[] = array(  'nombre' => "UN Egresados",
+                                    'imagen' => 'descarga.png');
+
+        $this->_view->assign('Aliados',$Aliados);
+
+        $this->_view->renderizar(__FUNCTION__);
     }
 
     public function inversionistas() {

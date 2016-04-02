@@ -172,6 +172,7 @@ class View extends Smarty {
         $this->_recursos['css'] = array_merge(  $this->getAssetsLayout('css'),             
                                                 $this->_recursos['css'],
                                                 $this->getItems('css', $vista));
+
         $_params = array(
             'js' => $this->_recursos['js'],
             'css' => $this->_recursos['css'],
@@ -225,9 +226,9 @@ class View extends Smarty {
                             $vista = $this->_request->getControlador();
                         }
                         if ($modulo) {
-                            $_ruta = SITE . DS . 'modules' . DS . $modulo . DS . 'views' . DS . $vista . DS . $item . DS;
+                            $_ruta = SITE . SDS . 'modules' . SDS . $modulo . SDS . 'views' . SDS . $vista . SDS . $item . SDS;
                         } else {
-                            $_ruta = SITE . DS . 'views' . DS . $this->_request->getControlador() . DS . $item . DS;
+                            $_ruta = SITE . SDS . 'views' . SDS . $this->_request->getControlador() . SDS . $item . SDS;
                         }
                         if (is_dir($this->_rutas[$item] . $file)) {
                             foreach ($this->items_add as $it) {
@@ -381,7 +382,7 @@ class View extends Smarty {
         $ext = end($arr);
 
         if(is_readable(APP_ROOT . "libraries" . DS . $ext . DS . $item))
-            $this->_recursos[$ext][] = SITE . DS . "libraries" . DS . $ext . DS . $item;
+            $this->_recursos[$ext][] = SITE . SDS . "libraries" . SDS . $ext . SDS . $item;
         else
             throw new Exception("Asegurese que el documento $item se encuentra en el directorio.");
     }
