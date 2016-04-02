@@ -1,0 +1,44 @@
+.editor {
+  border: solid black;
+  display: flex;
+  flex-wrap: wrap;
+  content-justify: center;
+  overflow: hidden;
+  margin: 3px auto;
+  padding: 5px 10px;
+  border: solid #BBB 1px; }
+  .editor #herramientas {
+    width: 100%;
+    margin: 3px 6px; }
+    .editor #herramientas button {
+      padding: 0px;
+      margin: 0px;
+      width: 60px;
+      height: 30px; }
+      .editor #herramientas button:hover, .editor #herramientas button:active, .editor #herramientas button:focus {
+        color: #B70; }
+      .editor #herramientas button.deshabilitado {
+        opacity: 2;
+        cursor: not-allowed;
+        background-color: #dddddd;
+        color: #9d9d9d;
+        border: solid transparent 1px; }
+  .editor form {
+    width: 100%; }
+    .editor form * {
+      width: 100%;
+      margin: 7px auto;
+      display: block;
+      border: solid #d5d5d5 1px; }
+      .editor form *:hover {
+        border: solid #BBB 1px; }
+    .editor form #titulo {
+      font-size: 2em;
+      font-weight: bold; }
+    .editor form #contenido {
+      font-size: 1.5em;
+      height: 200px;
+      resize: vertical; }
+    .editor form > button, .editor form > input[type="submit"] {
+      float: left;
+      width: 50px; }

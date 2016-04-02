@@ -1,0 +1,67 @@
+@import "../../_lib.scss";
+
+$borde: #BBB;
+
+.editor {
+	@include test(black);
+	display: flex;
+	flex-wrap: wrap;
+	content-justify: center;
+	overflow: hidden;
+	margin: 3px auto;
+	padding: 5px 10px;
+	border: solid $borde 1px;
+
+	#herramientas {
+		width: 100%;
+		margin: 3px 6px;
+
+		button {
+			padding: 0px;
+			margin: 0px;
+			width: 60px;
+			height:30px;
+
+			&:hover, &:active, &:focus {
+				color: #B70;
+			}
+			&.deshabilitado {
+				opacity: 2;
+				cursor: not-allowed;
+				background-color: lighten(map-get($colores, 'negro'), 60%);
+				color: lighten(map-get($colores, 'negro'), 35%);
+				border: solid transparent 1px;
+			}
+		}
+	}
+
+	form {
+		width: 100%;
+		*{
+			width: 100%;
+			margin: 7px auto;
+			display: block;
+			border: solid lighten($borde, 10%) 1px;
+			&:hover{
+				border: solid $borde 1px;
+			}
+		}
+
+		#titulo {
+			font-size: 2em;
+			font-weight: bold;
+		}
+
+		#contenido {
+			font-size: 1.5em;
+			height: 200px;
+			resize: vertical;
+		}
+
+		>button, >input[type="submit"] {
+			float: left;
+			width: 50px;
+		}
+	}
+
+}

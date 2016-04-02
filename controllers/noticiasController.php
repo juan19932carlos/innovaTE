@@ -8,12 +8,29 @@ final class noticiasController extends Controller {
     }
 
     public function index() {
+
+    	$Noticias = array();
+
+    	$Noticias[] = array('titulo'	=> 'TItulo',
+    						'autor'		=> 'Autor',
+    						'contenido' => ''
+    						);
+
         return;
     }
 
     public function eventos() {
         
     }
+
+    public function Publicarnoticia() {
+    	print_r($_POST);
+    	return;
+    }
+
+    public function ObtenerHTML () {
+        print (json_encode( $_POST ) );
+    } 
 
 }
 ?>
