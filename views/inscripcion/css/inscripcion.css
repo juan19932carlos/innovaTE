@@ -1,0 +1,20 @@
+.contenedor-inscripcion-grupos {
+  display: flex;
+  flex-wrap: wrap; }
+  .contenedor-inscripcion-grupos > div {
+    border: solid red;
+    width: 46%; }
+    .contenedor-inscripcion-grupos > div ul {
+      display: flex;
+      border: solid blue;
+      flex-wrap: nowrap;
+      padding: 0px; }
+      .contenedor-inscripcion-grupos > div ul > li {
+        border: solid #c4c4c4;
+        list-style: none; }
+        .contenedor-inscripcion-grupos > div ul > li.active {
+          border: solid #069;
+          border-bottom: solid transparent;
+          background-color: #AAA; }
+    .contenedor-inscripcion-grupos > div form.inactive {
+      display: none; }

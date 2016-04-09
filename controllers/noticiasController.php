@@ -28,8 +28,32 @@ final class noticiasController extends Controller {
     	return;
     }
 
-    public function ObtenerHTML () {
-        print (json_encode( $_POST ) );
+    public function ObtenerHTML ($contenido = null) {
+        if ( is_null($contenido) )
+            $contenido = array('contenido' => $_POST['contenido'],
+                                        'titulo'=>$_POST['titulo'], 
+                                        'tags'=> $_POST['tags']);
+
+        //procesa el contenido
+        $map = array("\n"  => '</p><p>',
+                     '[b]'  => '<strong>',
+                     '[/b]' => '</strong>',
+                     '[i]'  => '<em>',
+                     '[/i]'  => '</em>',
+                     '[img = ' => '</p><img src="',
+                     '[lista]' => '<ul>',
+                     '[/lista]'  => '</ul>',
+                     '[item]'  => '<li>',
+                     '[/item]'  => '</li>',
+                     '[link ='  => '<a href=',
+                     '[/link]'  => '<a>',
+                     '[cita]'  => '<blockquote>',
+                     '[/cita]'  => '</blockquote>',
+                     ']'  => '"><p>');
+        $contenido['contenido'] = "<p>".str_replace( array_keys($map), array_values($map), $contenido['contenido']) . "</p>";
+
+        print(json_encode($contenido));
+
     } 
 
 }

@@ -22,7 +22,9 @@
 
 	</div>
 	<div id="vista_previa_container">
-		
+		<h2 id="titulo"></h2>
+		<div id="contenido">
+		</div>
 	</div>
 </div>
 

@@ -1,0 +1,32 @@
+@import "../../_lib.scss";
+
+.contenedor-inscripcion-grupos {
+	display: flex;
+	flex-wrap: wrap;
+
+	>div{
+		@include test(red);
+		width: 46%;
+		ul {
+			display: flex;
+			@include test(blue);
+			flex-wrap: nowrap;
+			padding: 0px;
+			>li {
+				border: solid lighten(map-get($colores,'negro'), 50%); 
+				list-style: none;
+				&.active {
+					border: solid map-get($colores,'azul');
+					border-bottom: solid transparent;
+					background-color: #AAA;
+				}
+			}
+		}
+
+		form {
+			&.inactive{
+				display: none; 
+			}
+		}
+	}
+}

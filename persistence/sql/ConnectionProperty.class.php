@@ -6,10 +6,10 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-	private static $host = DB_HOST;
-	private static $user = DB_USER;
-	private static $password = DB_PASSWORD;
-	private static $database = DB_NAME;
+	private static $host = 'localhost';
+	private static $user = 'root';
+	private static $password = '1234';
+	private static $database = 'innovate';
 
 	public static function getHost(){
 		return ConnectionProperty::$host;

@@ -68,7 +68,7 @@ final class indexController extends Controller {
         return;
     }
 
-    private function test($pass = null){
+    public function test($pass = null){
         $hash = password_hash($pass,PASSWORD_BCRYPT);
         echo $hash ."<hr>";
         echo password_verify($pass,$hash);

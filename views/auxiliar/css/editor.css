@@ -1,5 +1,4 @@
 .editor {
-  border: solid black;
   display: flex;
   flex-wrap: wrap;
   content-justify: center;
@@ -38,7 +37,32 @@
     .editor form #contenido {
       font-size: 1.5em;
       height: 200px;
-      resize: vertical; }
+      resize: vertical;
+      overflow: auto; }
     .editor form > button, .editor form > input[type="submit"] {
       float: left;
       width: 50px; }
+
+#vista_previa_container {
+  width: 90%;
+  padding: 10px 15px;
+  border: solid #BBB 1px;
+  margin: auto; }
+  #vista_previa_container > #contenido {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: justify; }
+    #vista_previa_container > #contenido img {
+      width: 60%;
+      margin: auto; }
+    #vista_previa_container > #contenido blockquote {
+      padding: 3px 40px;
+      background-image: url(http://craigturner.com.au/wp-content/uploads/2014/01/quote-icon.png), url(https://www.julienbraida.com/wp-content/uploads/2014/06/Guillemet1-300x234.png);
+      background-position: left top, right bottom;
+      background-size: 40px, 40px;
+      background-repeat: no-repeat, no-repeat;
+      width: 80%;
+      background-color: #d9d9d9;
+      border-radius: 10px; }

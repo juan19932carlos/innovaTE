@@ -22,6 +22,27 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return IntegrantesDAO
+	 */
+	public static function getIntegrantesDAO(){
+		return new IntegrantesMySqlExtDAO();
+	}
+
+	/**
+	 * @return InversionistasDAO
+	 */
+	public static function getInversionistasDAO(){
+		return new InversionistasMySqlExtDAO();
+	}
+
+	/**
+	 * @return ManualesDAO
+	 */
+	public static function getManualesDAO(){
+		return new ManualesMySqlExtDAO();
+	}
+
+	/**
 	 * @return NoticiasDAO
 	 */
 	public static function getNoticiasDAO(){
@@ -36,10 +57,17 @@ class DAOFactory{
 	}
 
 	/**
-	 * @return RecordarDAO
+	 * @return RequisitosDAO
 	 */
-	public static function getRecordarDAO(){
-		return new RecordarMySqlExtDAO();
+	public static function getRequisitosDAO(){
+		return new RequisitosMySqlExtDAO();
+	}
+
+	/**
+	 * @return RequisitoscumplidosDAO
+	 */
+	public static function getRequisitoscumplidosDAO(){
+		return new RequisitoscumplidosMySqlExtDAO();
 	}
 
 	/**

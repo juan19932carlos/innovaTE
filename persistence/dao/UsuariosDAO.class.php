@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2016-02-12 06:21
+ * @date: 2016-04-03 06:33
  */
 interface UsuariosDAO{
 
@@ -13,7 +13,7 @@ interface UsuariosDAO{
 	 * @param String $id primary key
 	 * @Return Usuarios 
 	 */
-	public function load($id);
+	public function load($id, $claseDoc);
 
 	/**
 	 * Get all records from table
@@ -30,7 +30,7 @@ interface UsuariosDAO{
  	 * Delete record from table
  	 * @param usuario primary key
  	 */
-	public function delete($codigo);
+	public function delete($id, $claseDoc);
 	
 	/**
  	 * Insert record to table
@@ -51,26 +51,26 @@ interface UsuariosDAO{
 	 */
 	public function clean();
 
+	public function queryByRol($value);
+
 	public function queryByNombre($value);
 
 	public function queryByApellido($value);
 
-	public function queryByRol($value);
+	public function queryByEmail($value);
 
 	public function queryByContraseña($value);
 
-	public function queryBySalt($value);
 
+	public function deleteByRol($value);
 
 	public function deleteByNombre($value);
 
 	public function deleteByApellido($value);
 
-	public function deleteByRol($value);
+	public function deleteByEmail($value);
 
 	public function deleteByContraseña($value);
-
-	public function deleteBySalt($value);
 
 
 }

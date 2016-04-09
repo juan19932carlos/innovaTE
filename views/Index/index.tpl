@@ -53,11 +53,11 @@
 						<section id="tu-idea" >
 							<!--Cuadro blanco-->
 							<div class="bg-blanco shadow-down-negro">
-								<a href="">
+								<a href="{$_params.site}/inscripcion">
 									<img src="{$_params.site}/imagenes/pencil.png" alt="Inscribe tu idea" class="img-responsive">
 									<h2>Inscribe tu idea</h2>
 								</a>
-								<a href="">
+								<a href="{$_params.site}//">
 									<img src="{$_params.site}/imagenes/watch.png" alt="Sigue tu progreso" class="img-responsive">
 									<h2>Sigue tu progreso</h2>
 								</a>

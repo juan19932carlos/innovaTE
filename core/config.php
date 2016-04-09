@@ -72,7 +72,7 @@ define("DB_PASSWORD", '1234');
  * 
  * @global string DB_NAME
  */
-define("DB_NAME", 'inovate');
+define("DB_NAME", 'innovate');
 
 /**
  * Motor de base de datos.
