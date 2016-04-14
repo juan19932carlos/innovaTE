@@ -3,7 +3,7 @@
  * Class that operate on table 'integrantes'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2016-04-03 06:33
+ * @date: 2016-04-14 07:16
  */
 class IntegrantesMySqlDAO implements IntegrantesDAO{
 
@@ -13,10 +13,13 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
 	 * @param String $id primary key
 	 * @return IntegrantesMySql 
 	 */
-	public function load($id){
-		$sql = 'SELECT * FROM integrantes WHERE id = ?';
+	public function load($usuario, $proyecto, $claseDoc){
+		$sql = 'SELECT * FROM integrantes WHERE usuario = ?  AND proyecto = ?  AND claseDoc = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($id);
+		$sqlQuery->setNumber($usuario);
+		$sqlQuery->setNumber($proyecto);
+		$sqlQuery->setNumber($claseDoc);
+
 		return $this->getRow($sqlQuery);
 	}
 
@@ -44,10 +47,13 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
  	 * Delete record from table
  	 * @param integrante primary key
  	 */
-	public function delete($id){
-		$sql = 'DELETE FROM integrantes WHERE id = ?';
+	public function delete($usuario, $proyecto, $claseDoc){
+		$sql = 'DELETE FROM integrantes WHERE usuario = ?  AND proyecto = ?  AND claseDoc = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($id);
+		$sqlQuery->setNumber($usuario);
+		$sqlQuery->setNumber($proyecto);
+		$sqlQuery->setNumber($claseDoc);
+
 		return $this->executeUpdate($sqlQuery);
 	}
 	
@@ -57,15 +63,20 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
  	 * @param IntegrantesMySql integrante
  	 */
 	public function insert($integrante){
-		$sql = 'INSERT INTO integrantes (usuario, grupo) VALUES (?, ?)';
+		$sql = 'INSERT INTO integrantes ( usuario, proyecto, claseDoc) VALUES ( ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->setNumber($integrante->usuario);
-		$sqlQuery->setNumber($integrante->grupo);
 
-		$id = $this->executeInsert($sqlQuery);	
-		$integrante->id = $id;
-		return $id;
+		
+		$sqlQuery->setNumber($integrante->usuario);
+
+		$sqlQuery->setNumber($integrante->proyecto);
+
+		$sqlQuery->setString($integrante->claseDoc);
+
+		$this->executeInsert($sqlQuery);	
+		//$integrante->id = $id;
+		//return $id;
 	}
 	
 	/**
@@ -74,13 +85,17 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
  	 * @param IntegrantesMySql integrante
  	 */
 	public function update($integrante){
-		$sql = 'UPDATE integrantes SET usuario = ?, grupo = ? WHERE id = ?';
+		$sql = 'UPDATE integrantes SET  WHERE usuario = ?  AND proyecto = ?  AND claseDoc = ? ';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->setNumber($integrante->usuario);
-		$sqlQuery->setNumber($integrante->grupo);
 
-		$sqlQuery->setNumber($integrante->id);
+		
+		$sqlQuery->setNumber($integrante->usuario);
+
+		$sqlQuery->setNumber($integrante->proyecto);
+
+		$sqlQuery->setNumber($integrante->claseDoc);
+
 		return $this->executeUpdate($sqlQuery);
 	}
 
@@ -93,34 +108,6 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByUsuario($value){
-		$sql = 'SELECT * FROM integrantes WHERE usuario = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
-		return $this->getList($sqlQuery);
-	}
-
-	public function queryByGrupo($value){
-		$sql = 'SELECT * FROM integrantes WHERE grupo = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
-		return $this->getList($sqlQuery);
-	}
-
-
-	public function deleteByUsuario($value){
-		$sql = 'DELETE FROM integrantes WHERE usuario = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
-		return $this->executeUpdate($sqlQuery);
-	}
-
-	public function deleteByGrupo($value){
-		$sql = 'DELETE FROM integrantes WHERE grupo = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
-		return $this->executeUpdate($sqlQuery);
-	}
 
 
 	
@@ -132,9 +119,9 @@ class IntegrantesMySqlDAO implements IntegrantesDAO{
 	protected function readRow($row){
 		$integrante = new Integrante();
 		
-		$integrante->id = $row['id'];
 		$integrante->usuario = $row['usuario'];
-		$integrante->grupo = $row['grupo'];
+		$integrante->proyecto = $row['proyecto'];
+		$integrante->claseDoc = $row['claseDoc'];
 
 		return $integrante;
 	}

@@ -3,13 +3,13 @@
 	 * Object represents table 'integrantes'
 	 *
      	 * @author: http://phpdao.com
-     	 * @date: 2016-04-03 06:33	 
+     	 * @date: 2016-04-14 07:16	 
 	 */
 	class Integrante{
 		
-		var $id;
-		var $usuario;
-		var $grupo;
+		var $usuario;
+		var $proyecto;
+		var $claseDoc;
 		
 	}
 ?>

@@ -14,7 +14,7 @@ function insc_equipos(){
 		$('form' , usuariosContainer).addClass("inactive");
 		$('#usuario-'+usuariosCount, usuariosContainer).after( '<form id="usuario-' + (++usuariosCount) + '">' + formUsuario + '</form>');
 		$('ul li' , usuariosContainer).removeClass("active");
-		$('ul #'+ (usuariosCount-1), usuariosContainer).after('<li class="active" id="' + usuariosCount + '">'+ usuariosCount +'</li>');
+		$('ul #' + (usuariosCount-1), usuariosContainer).after('<li class="active" id="' + usuariosCount + '">'+ usuariosCount +'</li>');
 	});
 	$('#agregar', ideasContainer).on('click', function() {
 		$('form' , ideasContainer).addClass("inactive");
@@ -83,7 +83,6 @@ function insc_equipos(){
 			form_handler = form_handler.next("form");
 			aux+=1;
 		}
-		
 		ideasCount-=1;
 	});
 
@@ -103,5 +102,40 @@ function insc_equipos(){
 		$('#usuario-'+aux, usuariosContainer).removeClass("inactive");
 	});
 
-	//TODO: Falta elaborar funciones de verificación de datos y envío de datos para la correcta inscripción.
+	//Botón finalizar inscripción.
+	$("#enviar",".contenedor-inscripcion-grupos").on("click",function () {
+
+		//codificación.
+		data = { usuarios: [], ideas: []};
+
+		$.each( $("form",usuariosContainer), function (key, value) {
+			aux = {};
+			$.each( $(value).serializeArray(), function (dato, valor) {
+				aux[valor.name] = valor.value;
+			});
+
+			data.usuarios.push( aux );
+		});
+		$.each( $("form",ideasContainer), function (key, value) {
+			aux = {};
+			$.each( $(value).serializeArray(), function (dato, valor) {
+				aux[valor.name] = valor.value;
+			});
+
+			data.ideas.push( aux );
+		});
+
+		//envío.
+		$.ajax({
+			url: _params.site + "/inscripcion/registrarEquipo",
+			type: "post",
+			dataType: "json",
+			data: data,
+			success: function (response){
+				console.log(response);
+				//TODO: interpretar las diferentes respuestas JSON y hacer algo con ellas.
+
+			},
+		});
+	});
 }

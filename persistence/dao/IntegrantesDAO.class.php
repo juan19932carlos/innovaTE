@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2016-04-03 06:33
+ * @date: 2016-04-14 07:16
  */
 interface IntegrantesDAO{
 
@@ -13,7 +13,7 @@ interface IntegrantesDAO{
 	 * @param String $id primary key
 	 * @Return Integrantes 
 	 */
-	public function load($id);
+	public function load($usuario, $proyecto, $claseDoc);
 
 	/**
 	 * Get all records from table
@@ -30,7 +30,7 @@ interface IntegrantesDAO{
  	 * Delete record from table
  	 * @param integrante primary key
  	 */
-	public function delete($id);
+	public function delete($usuario, $proyecto, $claseDoc);
 	
 	/**
  	 * Insert record to table
@@ -51,14 +51,6 @@ interface IntegrantesDAO{
 	 */
 	public function clean();
 
-	public function queryByUsuario($value);
-
-	public function queryByGrupo($value);
-
-
-	public function deleteByUsuario($value);
-
-	public function deleteByGrupo($value);
 
 
 }

@@ -8,13 +8,6 @@
 class DAOFactory{
 	
 	/**
-	 * @return EquiposDAO
-	 */
-	public static function getEquiposDAO(){
-		return new EquiposMySqlExtDAO();
-	}
-
-	/**
 	 * @return EstadosDAO
 	 */
 	public static function getEstadosDAO(){

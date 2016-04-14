@@ -30,16 +30,9 @@
     }
 
     /**
-     * Inscribe un usuario con un formulario que tenga la siguiente informacion
-     * $_POST['nombre']     Nombre del usuario.
-     * $_POST['apellido']   Apellido del usuario.
-     * $_POST['documento']  Documento de identidad, esta ligado al tipo de documento.
-     * $_POST['tipo']       Clase de documento TI (Targeta de identidad), CC(Cedula de ciudadanis),CE(cedula de extrangeria), NIT.
-     * $_POST['contraseña'] Password para el inicio de sesión.
-     * $_POST['email']      Email para el envio de informacón.
+     * Inscribe un usuario con un formulario con los datos necesarios, os datos son recividos por POST.
      * 
      * @return JSON, Resultado de la inscripcion de el usuario especificado.
-     * 
      */
     public function registrarUsuario() {
 
@@ -51,31 +44,181 @@
 						"contraseña" => $_POST['contraseña'],
 						"email" => $_POST['email']);
 
-    	//validar correo
-    	if ( !filter_var($datos["email"], FILTER_VALIDATE_EMAIL) ) echo "correo incorrecto";
-    		//$this->redireccionar("/inscripcion");
-
-    	//validar documento
-    	if ( !is_numeric($datos['id']) ) echo "documento incorrecto";
-			//$this->redireccionar("/inscripcion");
-
-		//convertir contraseña para almacenarla.
-		$datos['contraseña'] = password_hash($datos['contraseña'],PASSWORD_BCRYPT);
-
-		//registrarlo en la base de datos
-		try {
-			DAOFactory::getUsuariosDAO()->insert( (object) $datos );
-		} catch (Exception $e) {
-            echo $e->getMessage();
-			if ( strpos( "Duplicate entry", $e->getMessage() ) !== false);
-				echo "Valor duplicado";
-			return;
-		}
+        $resp = $this->validarUsuario( $datos );
+        if ( is_string($resp) )
+            echo $resp;
+        else
+            echo "usuario inscrito corrrectamente";
     }
 
-    public function registraridea(){
+    public function registrarIdea (){
+        //TODO: Registrar idea
+    }
+
+    /**
+     * Inscribe iterativamente usuarios y ideas. Los usuarios son agregados a las ideas.
+     * 
+     * $_POST['usuarios']   Array con los usuarios a inscribir. Los usuarios deben cumplir con los mismos requisitos de la función registrarUsuario().
+     * $_POST['ideas']      Array con las ideas a inscribir. Las ideas deben cumplir con los mismos requisitos de la función registrarIdea().
+     * 
+     * @return JSON, Resultado con los errores, si los hay.
+     */
+    public function registrarEquipo () {
+        $trans = new Transaction();
+
+        $response = array('usuarios' => [],
+                          'ideas' => [] );
+        $TodoBien = true;
+
+        $usuarios = array();
+        $proyectos = array();
+
+        //Registrar los usuarios.
+        foreach ($_POST["usuarios"] as $key => $usuario) {
+            $datos = array( "rol" => 3,
+                            "nombre" => $usuario['nombre'],
+                            "apellido" => $usuario['apellido'],
+                            "id" => $usuario['documento'],
+                            "claseDoc" => $usuario['tipo'],
+                            "contraseña" => $usuario['contraseña'],
+                            "email" => $usuario['email']);
+
+            $resp = $this->validarUsuario( $datos );
+
+            if ( is_string($resp) ) {
+                $response["usuarios"][$key] = $resp;
+                $TodoBien = false;
+            }else{
+                $response["usuarios"][$key] = "success";
+                $usuarios[ $datos["id"] ] = $datos["claseDoc"];
+            }
+        }
+
+        //registro de ideas.
+        if ($TodoBien)
+        foreach ($_POST["ideas"] as $key => $idea) {
+            $datos = array( "nombre" => $idea['nombre'],
+                            "estado" => "inicial",
+                            "descripcion" => $idea['tipo'],
+                            "equipo" => 0);
+
+            $resp = $this->validarIdea( $datos );
+
+            if ( is_string($resp) ) {
+                $response["ideas"][$key] = $resp;
+                $TodoBien = false;
+            }else{
+                $response["ideas"][$key] = $resp;
+                $proyectos[] = $resp;
+            }
+        }
+
+        //registrar los usuarios en los proyectos.
+        if($TodoBien)
+        foreach ($proyectos as $proyecto_id) {
+            foreach ($usuarios as $key => $value) {
+                $integrante = array( "usuario" => (int)$key,
+                                    "claseDoc" => $value,
+                                    "proyecto" => $proyecto_id);
+
+                try {
+                    DAOFactory::getIntegrantesDAO()->insert( (object) $integrante );
+                } catch (Exception $e) {
+                    $trans->rollback();
+                    throw new Exception("Error desctonocido al ligar usuarios e ideas.<hr>".$e->getMessage(), 1);
+                    return;
+                }
+            }
+        }
+        
+        if ($TodoBien) {
+            $trans->commit();
+        } else {
+            $trans->rollback();
+        }
+
+        print json_encode( $response );
+
+        return;
 
     }
 
+    /**
+     * Valida los datos del usuario y registra en la base de datos.
+     *
+     * rol:          Rol que desempeñara en la plataforma.
+     * nombre:       Nombre del usuario.
+     * apellido:     Apellido del usuario.
+     * documento:    Documento de identidad, esta ligado al tipo de documento.
+     * tipo:         Clase de documento: TI (Targeta de identidad), CC(Cedula de ciudadanis),CE(cedula de extrangeria), NIT.
+     * contraseña:   Password para el inicio de sesión.
+     * email:        Email para el envio de informacón.
+     * 
+     * @param  Array, $datos, Array con los datos necesarios para inscribir un usuario
+     * @return boolean o string, Si encuentra un error en la validación o en la sentencia SQL es reportadacomo string, si no retorna TRUE.
+     */
+    private function validarUsuario( $datos = null ) {
+
+        if(!is_array($datos))
+            throw new Exception("La variable ingresada debe ser de tipo array", 1);
+            
+        //validar correo
+        if ( !filter_var($datos["email"], FILTER_VALIDATE_EMAIL) )
+            return "correo incorrecto" . $datos["email"];
+
+        //validar documento
+        if ( !is_numeric($datos['id']) ) 
+            return "documento incorrecto";
+
+        //convertir contraseña para almacenarla.
+        $datos['contraseña'] = password_hash($datos['contraseña'],PASSWORD_BCRYPT);
+
+        //registrarlo en la base de datos
+        try {
+            DAOFactory::getUsuariosDAO()->insert( (object) $datos );
+        } catch (Exception $e) {
+            //captura errores de la base de datos.
+            if ( strpos( $e->getMessage(), "Duplicate entry" ) != false)
+                return "Valor duplicado";
+            else
+                return "Error desconocido: ";
+        }
+
+        return TRUE;
+    }
+
+    /**
+     * Valida los datos de la idea y registra en la base de datos.
+     *
+     * nombre:          nombre del proyecto.
+     * estado:          estado de desarrollo del proyecto (en general inicia en 1, la fase inicial).
+     * descripción:     una breve descripción del proyecto.
+     * equipo:          //TODO: Aun no se que es, ver en la base de datos.
+     * 
+     * @param  Array, $datos, Array con los datos necesarios para inscribir la idea
+     * @return boolean o string, Si encuentra un error en la validación o en la sentencia SQL es reportadacomo string, si no retorna Id del proyecto.
+     */    
+    private function validarIdea ( $datos = null, $mentor = null ) {
+
+        if(!is_array($datos))
+            throw new Exception("La variable ingresada debe ser de tipo array", 1);
+
+        //TODO: validar el mentor, si lo hay.
+        if(!is_null($mentor)){
+
+        }
+
+        try {
+            $id = DAOFactory::getproyectosDAO()->insert( (object) $datos );
+        } catch (Exception $e) {
+            //captura errores de la base de datos.
+            if ( strpos( $e->getMessage(), "Duplicate entry" ) != false)
+                return "Valor duplicado";
+            else
+                return "Error desconocido: ".$e->getMessage();
+        }
+
+        return $id;
+    }
 }
  ?>

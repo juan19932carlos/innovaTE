@@ -34,7 +34,8 @@ final class indexController extends Controller {
         if (isset($this->_sesion->usuario))
             $this->redireccionar("/perfil/");
         elseif ( !empty($_POST['usuario']) and !empty($_POST['contraseña'])){
-            $a = DAOFactory::getUsuariosDAO()->load( $_POST['usuario'] );
+            //TODO: Implementar, selección de tipo de documento de identificacion en el inicio de sesión.
+            $a = DAOFactory::getUsuariosDAO()->load( $_POST['usuario'] , "NIT" );
 
             // Si el usuario no existe.
             if ( empty($a) ) {
